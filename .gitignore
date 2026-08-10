@@ -1,0 +1,20 @@
+# Design-inspiration mockups and unused media (not referenced by the site)
+media/hero1.jpg
+media/about1.jpg
+media/about2.jpg
+media/experience1.jpg
+media/experience2.jpg
+media/experience3.jpg
+media/work1.jpg
+media/work2.jpg
+media/foodie.jpg
+
+# Working notes, not part of the site
+links.txt
+
+# Claude Code project tooling
+.claude/
+
+# OS junk
+.DS_Store
+Thumbs.db
