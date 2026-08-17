@@ -135,6 +135,77 @@
     });
   }
 
+  /* ---------- Résumé panel ---------- */
+  const resumeTrigger = document.getElementById('resume-trigger');
+  const resumeOverlay = document.getElementById('resume-overlay');
+  const resumePanel = document.getElementById('resume-panel');
+  const resumeClose = document.getElementById('resume-panel-close');
+  const resumeFrame = document.getElementById('resume-frame');
+
+  if (resumeTrigger && resumeOverlay && resumePanel && resumeClose && resumeFrame) {
+    const resumeSrc = resumeTrigger.getAttribute('href') + '#toolbar=1&navpanes=0&view=FitH';
+    let resumeLastFocused = null;
+
+    const openResume = () => {
+      if (!resumeFrame.src) resumeFrame.src = resumeSrc;
+      resumeLastFocused = document.activeElement;
+      resumeOverlay.hidden = false;
+      resumePanel.hidden = false;
+      requestAnimationFrame(() => {
+        resumeOverlay.classList.add('open');
+        resumePanel.classList.add('open');
+      });
+      document.body.classList.add('resume-open');
+      resumeClose.focus();
+    };
+
+    const closeResume = () => {
+      if (resumePanel.hidden) return;
+      resumeOverlay.classList.remove('open');
+      resumePanel.classList.remove('open');
+      document.body.classList.remove('resume-open');
+      if (resumeLastFocused) resumeLastFocused.focus();
+
+      let settled = false;
+      const finish = () => {
+        if (settled) return;
+        settled = true;
+        resumePanel.hidden = true;
+        resumeOverlay.hidden = true;
+        resumePanel.removeEventListener('transitionend', onEnd);
+      };
+      const onEnd = (e) => { if (e.target === resumePanel) finish(); };
+      resumePanel.addEventListener('transitionend', onEnd);
+      setTimeout(finish, 400);
+    };
+
+    resumeTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      openResume();
+    });
+    resumeClose.addEventListener('click', closeResume);
+    resumeOverlay.addEventListener('click', closeResume);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeResume();
+    });
+
+    resumePanel.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      const focusable = resumePanel.querySelectorAll('a[href], button:not([disabled])');
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+  }
+
   /* ---------- Back to top ---------- */
   const backToTop = document.getElementById('back-to-top');
   if (backToTop) {

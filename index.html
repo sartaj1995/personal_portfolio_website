@@ -33,8 +33,7 @@
     </nav>
 
     <div class="header-actions">
-      <a class="btn btn-ghost" href="media/Resume - Sartaj Singh Dhatt.pdf" download>
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 19h16"/></svg>
+      <a class="btn btn-ghost" href="media/Resume - Sartaj Singh Dhatt.pdf" id="resume-trigger" data-resume-trigger aria-haspopup="dialog" aria-controls="resume-panel">
         <span>Résumé</span>
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
@@ -126,13 +125,6 @@
         </div>
       </div>
 
-      <div class="lang-strip reveal" aria-label="Languages spoken">
-        <span class="lang-item"><strong>English</strong><small>Fluent</small></span>
-        <span class="lang-item"><strong>Hindi</strong><small>Native</small></span>
-        <span class="lang-item"><strong>Punjabi</strong><small>Native</small></span>
-        <span class="lang-item"><strong>Marathi</strong><small>Basic</small></span>
-        <span class="lang-item"><strong>French</strong><small>Basic</small></span>
-      </div>
     </div>
   </section>
 
@@ -149,6 +141,11 @@
 
       <div class="timeline" id="timeline">
         <div class="timeline-line" aria-hidden="true"><span class="timeline-line-fill" id="timeline-fill"></span></div>
+
+        <div class="timeline-end timeline-end-start reveal">
+          <span class="timeline-dot timeline-dot-current"></span>
+          <p>Now — <strong>MBA, INSEAD</strong>, incoming <strong>Consultant, McKinsey Digital</strong></p>
+        </div>
 
         <article class="timeline-item reveal">
           <span class="timeline-dot"></span>
@@ -206,11 +203,6 @@
             </ul>
           </div>
         </article>
-
-        <div class="timeline-end reveal">
-          <span class="timeline-dot timeline-dot-current"></span>
-          <p>Now — <strong>MBA, INSEAD</strong>, incoming <strong>Consultant, McKinsey Digital</strong></p>
-        </div>
       </div>
     </div>
   </section>
@@ -396,6 +388,29 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<div class="resume-overlay" id="resume-overlay" hidden></div>
+<aside class="resume-panel" id="resume-panel" role="dialog" aria-modal="true" aria-labelledby="resume-panel-title" hidden>
+  <div class="resume-panel-header">
+    <span class="resume-panel-title" id="resume-panel-title">Résumé</span>
+    <div class="resume-panel-actions">
+      <a class="btn btn-ghost btn-sm" href="media/Resume - Sartaj Singh Dhatt.pdf" download aria-label="Download résumé PDF">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 19h16"/></svg>
+        <span>Download PDF</span>
+      </a>
+      <a class="btn btn-ghost btn-sm" href="media/Resume - Sartaj Singh Dhatt.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open résumé in a new tab">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+        <span>Open full tab</span>
+      </a>
+      <button class="resume-panel-close" id="resume-panel-close" aria-label="Close résumé preview">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="resume-panel-body">
+    <iframe id="resume-frame" title="Résumé — Sartaj Singh Dhatt"></iframe>
+  </div>
+</aside>
+
+<script src="js/main.js?v=4"></script>
 </body>
 </html>

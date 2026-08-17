@@ -424,6 +424,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
 /* ---------- About / Brain split ---------- */
 .about { background: var(--bg-elevated); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.about .section-title { max-width: none; }
 
 .brain-split {
   margin-top: var(--space-8);
@@ -491,18 +492,6 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   background: var(--bg);
   border: 2px solid var(--accent);
 }
-
-.lang-strip {
-  margin-top: var(--space-7);
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-6);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--border);
-}
-.lang-item { display: flex; flex-direction: column; gap: 0.2rem; }
-.lang-item strong { font-family: var(--font-display); font-size: 1.1rem; }
-.lang-item small { color: var(--text-faint); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
 
 /* ---------- Experience Timeline ---------- */
 .experience { position: relative; }
@@ -605,9 +594,11 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   background: var(--accent);
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
+.timeline-end-start { margin-bottom: var(--space-7); padding-top: 0; }
 
 /* ---------- Education ---------- */
 .education { background: var(--bg-elevated); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.education .section-title { max-width: none; }
 
 .edu-grid {
   margin-top: var(--space-7);
@@ -807,6 +798,76 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 .back-to-top:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
 
+/* ---------- Résumé panel ---------- */
+.resume-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 199;
+  opacity: 0;
+  transition: opacity var(--dur-med) var(--ease);
+}
+.resume-overlay.open { opacity: 1; }
+
+.resume-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(50vw, 780px);
+  min-width: 460px;
+  background: var(--bg-elevated);
+  border-left: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  transform: translateX(100%);
+  transition: transform var(--dur-med) var(--ease);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+}
+.resume-panel.open { transform: translateX(0); }
+
+.resume-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border);
+}
+.resume-panel-title {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.resume-panel-actions { display: flex; align-items: center; gap: var(--space-2); }
+.resume-panel .btn-sm { padding: 0.55rem 1rem; font-size: 0.85rem; }
+
+.resume-panel-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+.resume-panel-close:hover { color: var(--accent); border-color: var(--accent); }
+.resume-panel-close .icon { width: 1.1em; height: 1.1em; }
+
+.resume-panel-body { flex: 1; background: var(--bg-elevated-2); }
+.resume-panel-body iframe { width: 100%; height: 100%; border: 0; background: #38383a; }
+
+body.resume-open { overflow: hidden; }
+
 /* ==========================================================================
    Responsive
    ========================================================================== */
@@ -841,6 +902,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .nav-toggle { display: flex; }
   .header-actions .btn-ghost span { display: none; }
   .skills-grid { grid-template-columns: 1fr; }
+  .resume-panel { width: min(78vw, 480px); }
 }
 
 @media (max-width: 640px) {
@@ -851,6 +913,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .timeline-dot { left: -31px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .btn { justify-content: center; }
-  .lang-strip { gap: var(--space-4); }
   .footer-inner { flex-direction: column; gap: var(--space-4); text-align: center; }
+  .resume-panel { width: 100vw; min-width: 0; }
+  .resume-panel .btn-sm span { display: none; }
+  .resume-panel-header { padding: var(--space-4); }
 }
