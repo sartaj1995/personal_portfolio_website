@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -249,9 +249,75 @@
     <div class="section-inner">
       <p class="eyebrow reveal">Projects</p>
       <h2 class="section-title reveal">Things I've built on the side</h2>
-      <p class="section-lede reveal">A few repos where I trade the boardroom for a code editor.</p>
+      <p class="section-lede reveal">Where I trade the boardroom for a code editor — most of these are live apps you can open right now, and all of them are open source.</p>
 
       <div class="project-grid">
+
+        <article class="project-card reveal" data-tilt>
+          <div class="project-media">
+            <img src="media/arabic_tutor.jpg" alt="Arabic Tutor showing the Unit 1 Foundations lessons and a levels-completed progress panel" loading="lazy" width="1024" height="768">
+          </div>
+          <div class="project-body">
+            <h3>Arabic Tutor</h3>
+            <p>A 100-level Modern Standard Arabic course for English speakers — 1,367 exercises, an on-screen Arabic keyboard, spaced-repetition review, and pronunciation read aloud by the browser's own speech engine.</p>
+            <ul class="project-tags">
+              <li>React</li><li>TypeScript</li><li>Vite</li><li>IndexedDB</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://arabic-tutor-ssd.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                <span>Live app</span>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </a>
+              <a href="https://github.com/sartaj1995/arabic-tutor" target="_blank" rel="noopener noreferrer" class="project-link project-link-muted">
+                <span>Repo</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tilt>
+          <div class="project-media">
+            <img src="media/health_tracker.jpg" alt="Health Tracker dashboard with flagged readings, pinned metric cards and sparkline trend charts" loading="lazy" width="1400" height="968">
+          </div>
+          <div class="project-body">
+            <h3>Health Tracker</h3>
+            <p>Scattered health numbers turned into trends you can actually read — sparkline dashboards, healthy-range flags on every metric, and lab reports imported straight from PDF. No account, no server; readings stay in your browser.</p>
+            <ul class="project-tags">
+              <li>Next.js</li><li>TypeScript</li><li>Tailwind</li><li>Recharts</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://health-tracker-ssd.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                <span>Live app</span>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </a>
+              <a href="https://github.com/sartaj1995/health-tracker" target="_blank" rel="noopener noreferrer" class="project-link project-link-muted">
+                <span>Repo</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tilt>
+          <div class="project-media">
+            <img src="media/workout_tracker.jpg" alt="Workout Tracker home screen showing Push, Pull and Legs sessions above the week's training grid" loading="lazy" width="1024" height="768">
+          </div>
+          <div class="project-body">
+            <h3>Workout Tracker</h3>
+            <p>An offline-first PWA that opens every gym session with last time's weights already in the boxes, then charts estimated 1RM per exercise over time. No account, no signal required.</p>
+            <ul class="project-tags">
+              <li>React</li><li>TypeScript</li><li>Vite</li><li>PWA</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://workout-tracker-ssd.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                <span>Live app</span>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </a>
+              <a href="https://github.com/sartaj1995/workout-tracker" target="_blank" rel="noopener noreferrer" class="project-link project-link-muted">
+                <span>Repo</span>
+              </a>
+            </div>
+          </div>
+        </article>
 
         <article class="project-card reveal" data-tilt>
           <div class="project-media">
@@ -263,10 +329,12 @@
             <ul class="project-tags">
               <li>Python</li><li>Streamlit</li><li>yfinance</li><li>Altair</li>
             </ul>
-            <a href="https://github.com/sartaj1995/stock-screener" target="_blank" rel="noopener noreferrer" class="project-link">
-              <span>View repo</span>
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </a>
+            <div class="project-links">
+              <a href="https://github.com/sartaj1995/stock-screener" target="_blank" rel="noopener noreferrer" class="project-link">
+                <span>View repo</span>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </a>
+            </div>
           </div>
         </article>
 
@@ -280,10 +348,12 @@
             <ul class="project-tags">
               <li>JavaScript</li><li>HTML5</li><li>CSS3</li><li>Game Dev</li>
             </ul>
-            <a href="https://github.com/sartaj1995/classic_snake__v2" target="_blank" rel="noopener noreferrer" class="project-link">
-              <span>View repo</span>
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </a>
+            <div class="project-links">
+              <a href="https://github.com/sartaj1995/classic_snake__v2" target="_blank" rel="noopener noreferrer" class="project-link">
+                <span>View repo</span>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </a>
+            </div>
           </div>
         </article>
 
@@ -297,10 +367,12 @@
             <ul class="project-tags">
               <li>Automation</li><li>LLM Agents</li><li>Zapier</li>
             </ul>
-            <a href="https://github.com/sartaj1995/Zapier" target="_blank" rel="noopener noreferrer" class="project-link">
-              <span>View repo</span>
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
-            </a>
+            <div class="project-links">
+              <a href="https://github.com/sartaj1995/Zapier" target="_blank" rel="noopener noreferrer" class="project-link">
+                <span>View repo</span>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+              </a>
+            </div>
           </div>
         </article>
 
