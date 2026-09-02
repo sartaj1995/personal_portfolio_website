@@ -664,6 +664,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   transition: border-color var(--dur-med) var(--ease), box-shadow var(--dur-med) var(--ease);
   transform-style: preserve-3d;
   will-change: transform;
+  display: flex;
+  flex-direction: column;
 }
 .project-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-soft); }
 
@@ -687,7 +689,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.5);
 }
 
-.project-body { padding: var(--space-5); }
+/* Column layout so each card's links sit on the baseline, whatever the copy length */
+.project-body { padding: var(--space-5); display: flex; flex-direction: column; flex: 1; }
 .project-body h3 { font-size: 1.25rem; margin-bottom: var(--space-2); }
 .project-body > p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.65; margin-bottom: var(--space-4); }
 
@@ -702,6 +705,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   border: 1px solid var(--border);
 }
 
+.project-links { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; margin-top: auto; }
+
 .project-link {
   display: inline-flex;
   align-items: center;
@@ -712,6 +717,14 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 .project-link .icon { transition: transform var(--dur-fast) var(--ease); }
 .project-link:hover .icon { transform: translate(2px, -2px); }
+
+/* Secondary action: subordinate to the live-app link on the same card */
+.project-link-muted {
+  color: var(--text-faint);
+  font-weight: 500;
+  transition: color var(--dur-fast) var(--ease);
+}
+.project-link-muted:hover { color: var(--text-muted); }
 
 .projects-more { margin-top: var(--space-7); display: flex; justify-content: center; }
 
